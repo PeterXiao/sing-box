@@ -309,8 +309,8 @@ jobs:
       - name: Zip `sing-box` cores by `tar`
         run: |
           mkdir -p ./tmp-sing-box/compress/
-          archs=(amd64 amd64-v3 armv5 armv6 armv7 arm64 mips-softfloat mipsle-hardfloat mipsle-softfloat)
-          new_name=(amd64 amd64v3 armv5 armv6 armv7 armv8 mips-softfloat mipsle-hardfloat mipsle-softfloat)
+          archs=(amd64 amd64-v3 )
+          new_name=(amd64 amd64v3 )
           # `PuerNya` cores
           for((i=0;i<9;i++));do
             mv -f "./tmp-sing-box/sing-box-puernya-linux-${archs[i]}/sing-box" ./tmp-sing-box/sing-box
@@ -339,17 +339,15 @@ jobs:
           # `PuerNya` cores for Windows
           mv -f ./tmp-sing-box/sing-box-puernya-windows-amd64/sing-box.exe ./sing-box/sing-box-puernya-windows-amd64.exe
           mv -f ./tmp-sing-box/sing-box-puernya-windows-amd64-v3/sing-box.exe ./sing-box/sing-box-puernya-windows-amd64v3.exe
-          mv -f ./tmp-sing-box/sing-box-puernya-windows-arm64/sing-box.exe ./sing-box/sing-box-puernya-windows-arm64.exe
+         
 
           # `Release` cores for Windows
           mv -f ./tmp-sing-box/sing-box-release-windows-amd64/sing-box.exe ./sing-box/sing-box-release-windows-amd64.exe
           mv -f ./tmp-sing-box/sing-box-release-windows-amd64-v3/sing-box.exe ./sing-box/sing-box-release-windows-amd64v3.exe
-          mv -f ./tmp-sing-box/sing-box-release-windows-arm64/sing-box.exe ./sing-box/sing-box-release-windows-arm64.exe
-
+         
           # `dev` cores for Windows
           mv -f ./tmp-sing-box/sing-box-dev-windows-amd64/sing-box.exe ./sing-box/sing-box-dev-windows-amd64.exe
           mv -f ./tmp-sing-box/sing-box-dev-windows-amd64-v3/sing-box.exe ./sing-box/sing-box-dev-windows-amd64v3.exe
-          mv -f ./tmp-sing-box/sing-box-dev-windows-arm64/sing-box.exe ./sing-box/sing-box-dev-windows-arm64.exe
           rm -rf ./tmp*
 
       - name: Release and upload `sing-box` assets
